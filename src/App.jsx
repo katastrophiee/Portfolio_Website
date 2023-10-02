@@ -1,9 +1,8 @@
 import "./styles.css"
 import { useState } from 'react'; //built in hook from React
 
-import HomePage from "./src/Lol.jsx";
-
-//npm run dev
+//npm run dev -- start
+//ctrl + c on terminal -- stop
 
 const me = {
   FirstName: 'Kaytlen',
@@ -26,7 +25,10 @@ export default function App(){
   return <form className="Home">
     <h1>Hello!</h1>
     <div>Im {me.FirstName}, and this feels cringe!</div>
-    <div>This is a bunch of absolute shit bc im tryna learn, real page here ---&gt;</div> {/* the stupid > symbol is reserved, soooo &gt; instead for some reason */}
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div>This is a bunch of absolute shit because I'm trying to learn, real page here ---&gt;</div>
+      <NavButton url={"pages/Lol"} />
+    </div>
     <img className="logo" />
     <Clicky />
     <AboutPage />
@@ -131,6 +133,12 @@ const products = [
   { title: 'Apple', isFruit: true, id: 3 },
 ];
 
-function NavButton(url){
+function NavButton({ url }) {
+  const redirectToUrl = () => {
+    window.location.href = url;
+  };
 
+  return (
+    <button onClick={redirectToUrl}>Go to Page</button>
+  );
 }
