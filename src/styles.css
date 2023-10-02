@@ -1,0 +1,32 @@
+* {
+    background-color: rgb(240, 202, 208);
+    padding: 2px;
+}
+
+.Home h1 {
+    color: white;
+    text-shadow: 3px 1.5px 1px #6bdde6;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+.Home div{
+    color: white;
+    text-shadow: -1px -1px 0 #6bdde6, 1px -1px 0 #6bdde6, -1px 1px 0 #6bdde6, 1px 1px 0 #6bdde6, 0px 0px 5px white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+button {
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #a8e6eb;
+    border-radius: 10px;
+    border-color: white;
+    padding: 10px;
+}
+
+.logo {
+    border-radius: 50%;
+  }
