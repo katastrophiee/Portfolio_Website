@@ -1,5 +1,8 @@
-import "./styles.css"
-import { useState } from 'react'; //built in hook from React
+import "./Styles/HomePageStyle.css";
+import React from "react";
+import NavBar from "./NavBar";
+import About from "./Screens/About";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 //npm run dev -- start
 //ctrl + c on terminal -- stop
@@ -7,65 +10,22 @@ import { useState } from 'react'; //built in hook from React
 const me = {
   FirstName: 'Kaytlen',
   LastName: 'Tommis-birkett',
-  UserProfilePic: 'src/Assets/Images/cat_transparent.png',
+  UserProfilePic: 'src/Assets/cat_transparent.png',
   UserProfilePicSize: 90,
 };
 
-var clicked = false;
+function App(){
 
-export default function App(){
-  
-  const [count, setCount] = useState(0);
 
-  function handleClick(event) {
-    event.preventDefault();
-    setCount(count + 1);
-  }
-
-  return <form className="Home">
-    <h1>Hello!</h1>
-    <div>Im {me.FirstName}, and this feels cringe!</div>
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <div>This is a bunch of absolute shit because I'm trying to learn, real page here ---&gt;</div>
-      <NavButton url={"pages/Lol"} />
-    </div>
-    <img className="logo" />
-    <Clicky />
-    <AboutPage />
-    <h1>{me.FirstName}</h1>
-    <img 
-      className="logo"
-      src={me.UserProfilePic} 
-      alt={'Photo of ' + me.FirstName + ' ' + me.LastName} 
-      style={{
-        width: me.UserProfilePicSize,
-        height: me.UserProfilePicSize
-      }}
-    />
-
-    <div>
-    {clicked //CAN USE TERNARY OPERATOR !!!
-      ? <h1>Clicked</h1> 
-      : <h1>Not Clicked</h1>}
-    </div>
-
-    <div>
-      <h2>Seperately updating buttons </h2>
-    <IndividualButton /> {/* same component multiple times, each will get its own state and will NOT share values*/}
-    <IndividualButton />
-    </div>
-
-    <div>
-      <h2>Counters that update together</h2>
-      <JointButton count={count} onClick={handleClick} />
-      <JointButton count={count} onClick={handleClick} />
-    </div>
-
-{/* If the else on the ternary operator is not needed, you can use && instead */}
-{/* {clicked && <h1>Clicked</h1>} can be replaced with component, e.g <Clicky /> */}
-
-    <ShoppingList />
-  </form>
+  return (
+    <>
+      <NavBar />
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/Screens/About" element={<About />} />
+      </Routes>
+    </>
+  );
 } 
 
 function Clicky() {
@@ -79,26 +39,49 @@ function Clicky() {
 //reusable, self-contained pieces of code that encapsulate a specific piece of functionality and user interface elements
 // there are functional and class components, this is a functional component
 
-function IndividualButton() {
-  const [count, setCount] = useState(0); 
+function NavigationButton({ url }) {
 
-  function handleClick(event) {
-    event.preventDefault();
-    setCount(count + 1);
+  function handleClick() {
+    history.pushState(null, null, url);
   }
 
-  return (
-    <button onClick={handleClick}>
-      Clicked {count} times
-    </button>
-  );
+  return <button onClick={handleClick}>Go to {url}</button>
 }
 
-function JointButton({ count, onClick }) {
+function Before(){
   return (
-    <button onClick={onClick}>
-      Clicked {count} times
-    </button>
+    <>
+      <form className="Home">
+        
+        <h1>Hello!</h1>
+
+        <div>Im {me.FirstName}, and this feels cringe!</div>
+        
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div>This is a bunch of absolute shit because I'm trying to learn, real page here ---&gt;</div>
+          <NavigationButton url={"src/Screens/Lol.jsx"} />
+        </div>
+
+        <img className="logo" />
+
+        <Clicky />
+
+        <AboutPage />
+
+        <h1>{me.FirstName}</h1>
+
+        <img 
+          className="logo"
+          src={me.UserProfilePic} 
+          alt={'Photo of ' + me.FirstName + ' ' + me.LastName} 
+          style={{
+            width: me.UserProfilePicSize,
+            height: me.UserProfilePicSize
+          }}
+        />
+
+      </form>
+    </>
   );
 }
 
@@ -111,34 +94,4 @@ function AboutPage() {
   );
 }
 
-function ShoppingList() {
-  return (
-    <ul>
-      {products.map(product => (
-        <li 
-        key={product.id}
-        style={{
-          color: product.isFruit ? 'magenta' : 'darkgreen'
-        }}>
-          {product.title}
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-const products = [
-  { title: 'Cabbage', isFruit: false, id: 1 },
-  { title: 'Garlic', isFruit: false, id: 2 },
-  { title: 'Apple', isFruit: true, id: 3 },
-];
-
-function NavButton({ url }) {
-  const redirectToUrl = () => {
-    window.location.href = url;
-  };
-
-  return (
-    <button onClick={redirectToUrl}>Go to Page</button>
-  );
-}
+export default App
