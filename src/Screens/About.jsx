@@ -7,18 +7,16 @@ const me = {
   UserProfilePicSize: 90,
 };
 
+export { me };
+
 export default function About() {
   return (
     <>
-      <form className="Home">
+      <form>
         
-        <h1>Hello!</h1>
+        <h1>What!</h1>
 
         <div>Im {me.FirstName}, and this feels cringe!</div>
-        
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          Lol
-        </div>
 
         <img className="logo" />
         <h1>{me.FirstName}</h1>

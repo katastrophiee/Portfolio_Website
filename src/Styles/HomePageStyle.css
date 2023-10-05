@@ -1,21 +1,78 @@
 body {
-    background-color: rgb(240, 202, 208);
+    background-color: rgb(26, 30, 54);
 }
 
-.Home h1 {
+h1 {
     color: white;
     text-shadow: 3px 1.5px 1px #6bdde6;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 50px;
     text-decoration: underline;
+    padding-left: 30px;
 }
 
-.Home div{
+div .home {
     color: white;
-    text-shadow: -1px -1px 0 #6bdde6, 1px -1px 0 #6bdde6, -1px 1px 0 #6bdde6, 1px 1px 0 #6bdde6, 0px 0px 5px white;
+    background-color: rgb(240, 202, 208);
+    text-shadow: 3px 1.5px 1px #6bdde6;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 25px;
+    padding: 100px;
 }
+
+div .welcome-title {
+    text-shadow: 10px 7px 1px #6bdde6;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 250px;
+    padding: 1vw 15vh;
+    text-align: center;
+    opacity: 0;
+    animation: fade-in .75s ease-in-out forwards;
+    padding-bottom: 0%;
+}
+
+div .welcome-message {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    opacity: 0;
+    animation: fade-in .75s ease-in-out forwards;
+    animation-delay: .75s;
+    text-shadow: 2px 2px 1px rgb(206, 134, 152);
+    border: 5px solid #6bdde6;
+    padding: 10px;
+    margin: 0px 100px;
+    border-radius: 10px;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(25%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+div .square {
+    width: calc(100vw - 200px);
+    height: calc(100vh - 200px - 5rem); 
+    background-color: rgb(240, 202, 208);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 5rem;
+  }
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
 button {
     color: white;
