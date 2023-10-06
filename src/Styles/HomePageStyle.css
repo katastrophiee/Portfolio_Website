@@ -1,50 +1,116 @@
+/* General CSS */
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 body {
     background-color: rgb(26, 30, 54);
+    overflow-x: hidden;
 }
 
 h1 {
     color: white;
     text-shadow: 3px 1.5px 1px #6bdde6;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 50px;
-    text-decoration: underline;
-    padding-left: 30px;
 }
 
-div .home {
+button {
     color: white;
-    background-color: rgb(240, 202, 208);
-    text-shadow: 3px 1.5px 1px #6bdde6;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 25px;
-    padding: 100px;
+    text-shadow: .5px 1px 0px rgb(81, 170, 177);
+    background-color: #a8e6eb;
+    border-radius: 2vw;
+    border-color: white;
+    padding: 10px;
 }
 
-div .welcome-title {
-    text-shadow: 10px 7px 1px #6bdde6;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 250px;
-    padding: 1vw 15vh;
+p {
+    color: white;
+    font-size: 5vh;
+    text-align: center;
+    text-shadow: .1vw .1vw 0vw rgb(206, 134, 152);
+    padding: 25px;
+    margin: 0px 7.5vw 20px 7.5vw;
+} 
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1vw;
+    width: 1vw;
+    margin-right: 250px;
+}
+
+
+/* Home Page */
+
+.home-welcome-title {
+    text-shadow: .25vw .25vw 0vw #6bdde6;
+    font-size: 10vh;
+    padding-top: 1vw;
     text-align: center;
     opacity: 0;
     animation: fade-in .75s ease-in-out forwards;
-    padding-bottom: 0%;
+    padding-bottom: 0;
+    margin: 1vh;
 }
 
-div .welcome-message {
+.home-welcome-message {
     color: white;
-    font-size: 50px;
+    font-size: 5vh;
     text-align: center;
     opacity: 0;
     animation: fade-in .75s ease-in-out forwards;
     animation-delay: .75s;
-    text-shadow: 2px 2px 1px rgb(206, 134, 152);
-    border: 5px solid #6bdde6;
+    text-shadow: .1vw .1vw 0vw rgb(206, 134, 152);
     padding: 10px;
-    margin: 0px 100px;
-    border-radius: 10px;
+    margin: 0px 7.5vw 20px 7.5vw;
 }
 
+.slide {
+    margin: 5% 0 5% 5%;
+    width: 90%;
+    height: 80%;
+    background-color: rgb(240, 202, 208);
+    position: absolute;
+}
+
+.slide-left-onscreen {
+    background-color: rgb(240, 202, 208);
+    animation: slide-left-onscreen 1s ease-in-out forwards;
+}
+
+.slide-left-offscreen {
+    background-color: rgb(240, 202, 208);
+    animation: slide-left-offscreen 1s ease-in-out forwards;
+}
+
+.slide-right-onscreen {
+    background-color: rgb(240, 202, 208);
+    animation: slide-right-onscreen 1s ease-in-out forwards;
+}
+
+.slide-right-offscreen {
+    background-color: rgb(240, 202, 208);
+    animation: slide-right-offscreen 1s ease-in-out forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+.slide-change-button {
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animation */
+
+/* Makes the text slightly fade in */
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -56,33 +122,43 @@ div .welcome-message {
     }
 }
 
-div .square {
-    width: calc(100vw - 200px);
-    height: calc(100vh - 200px - 5rem); 
-    background-color: rgb(240, 202, 208);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 5rem;
-  }
-
-  .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-button {
-    color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #a8e6eb;
-    border-radius: 10px;
-    border-color: white;
-    padding: 10px;
+/* slides from centre of the screen to the left */
+@keyframes slide-left-onscreen {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-200%);
+    }
 }
 
-.logo {
-    border-radius: 50%;
-  }
+/* slides from left of the screen where not visible to centre */
+@keyframes slide-left-offscreen {
+    from {
+        transform: translateX(-200%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+/* slides from the centre to the right of the screen where no longer visible */
+@keyframes slide-right-onscreen {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(200%);
+        display: none;
+    }
+}
+
+/* slide from right of the screen where not visible to center */
+@keyframes slide-right-offscreen {
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}

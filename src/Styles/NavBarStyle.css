@@ -1,24 +1,19 @@
 * {
     box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
     margin: 0;
-    background-image: url("paper.gif");
 }
 
 .navbar {
-    background-color:  rgb(206, 134, 152); /* rgb(224, 157, 167); */
+    background-color:  rgb(206, 134, 152);
     color: white;
     display: flex;
     justify-content: space-between; /* pushes elements to the right */
     align-items:  stretch;
     gap: 2rem;
-    padding: 0 15em;
-}
-
-.home-page-link {
-    font-size: 10rem;
 }
 
 .navbar ul {
@@ -26,7 +21,9 @@ body {
     margin: 0;
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1vw;
+    width: 1vw;
+    margin-right: 250px;
 }
 
 .navbar a {
@@ -41,9 +38,15 @@ body {
 }
 
 .navbar li.active {
-    background-color: rgb(241, 171, 189);    
+    text-shadow: 0 0 5px #6bdde6;
 }
 
 .navbar li:hover {
     background-color: rgb(224, 155, 172);
 }
+
+.logo {
+    height: 60px;
+    margin-left: 0px;
+}
+
