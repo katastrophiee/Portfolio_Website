@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from 'react'; //built in hook from React
+import React, { useState } from "react"; //built in hook from React
+import { me } from "./AboutPage/About";
 
 var clicked = false;
 
@@ -114,7 +114,7 @@ function Clicky() {
 function NavigationButton({ url }) {
 
   function handleClick() {
-    history.pushState(null, null, url);
+    history.pushState('', '', url);
   }
 
   return <button onClick={handleClick}>Go to {url}</button>

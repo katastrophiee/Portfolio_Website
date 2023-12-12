@@ -1,7 +1,4 @@
 /* General CSS */
-* {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
 
 body {
     background-color: rgb(26, 30, 54);
@@ -12,13 +9,14 @@ h1 {
     color: white;
     text-shadow: 3px 1.5px 1px #6bdde6;
     font-size: 50px;
+    padding-left: 1rem;
 }
 
 button {
     color: white;
     text-shadow: .5px 1px 0px rgb(81, 170, 177);
     background-color: #a8e6eb;
-    border-radius: 2vw;
+    border-radius: 10px;
     border-color: white;
     padding: 10px;
 }
@@ -29,7 +27,7 @@ p {
     text-align: center;
     text-shadow: .1vw .1vw 0vw rgb(206, 134, 152);
     padding: 25px;
-    margin: 0px 7.5vw 20px 7.5vw;
+    margin: 0px 7.5vw 10px 7.5vw;
 } 
 
 ul {
@@ -41,7 +39,6 @@ ul {
     width: 1vw;
     margin-right: 250px;
 }
-
 
 /* Home Page */
 
@@ -101,11 +98,66 @@ ul {
 }
 
 .slide-change-button {
-    font-size: 20px;
-    width: 50px;
-    height: 50px;
+    font-size: 40px;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-left: calc(50% - 37.5px); /* Minus whatever half the width of the button is */
+    margin-top: 2%;
+    opacity: 0;
+    animation: fade-in .75s ease-in-out forwards;
+    animation-delay: 1.5s;
+}
+
+.slide-change-button:hover {
+    background-color: #4fb1bf;
+}
+
+.home-slide-two-links {
+    display: flex;
+    justify-content: center;
+}
+
+.home-slide-two-links > ul {
+    display: flex;
     justify-content: center;
     align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.home-slide-two-links > ul > * {
+    background-color: #4fb1bf;
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 0px rgb(81, 170, 177);
+    background-color: #a8e6eb;
+    border-radius: 10px;
+    border: 3px solid white;
+    font-size: 50px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.home-slide-two-links > ul > *:hover {
+    background-color: #4fb1bf;
+}
+
+.borgir-cat {
+    height: 25%;
+    object-position: center;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    padding: 5px;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Animation */
@@ -162,3 +214,4 @@ ul {
         transform: translateX(0%);
     }
 }
+

@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "heart_cat",
+        "image": "src/Assets/cat_heart.jpg",
+        "desc": "Made this as a part of a pack of twitch emotes for a friend. I no longer like this friend to make it even better, so now im not entirely sure what to do with them because its of his cat.",
+        "date_created": "2023-04-25"
+    },
+    {
+        "id": 2,
+        "name": "waving_cat",
+        "image": "src/Assets/cat_wave.jpg",
+        "desc": "Still gonna be seeing a few of this stupid cat, might be mean but I hope it dies so I can laugh at him, he deserves it...",
+        "date_created": "2023-05-20"
+    },
+    {
+        "id": 3,
+        "name": "crying_cat",
+        "image": "src/Assets/cat_cry.jpg",
+        "desc": "The cat again but sad. Okay saying I want it to die is really mean, the cat didnt do anything to me. Instead i hope he dies!! (this is a joke im sorry)",
+        "date_created": "2023-05-31"
+    }
+]
